@@ -173,7 +173,7 @@ class Zlapp(Fudan):
         if result['success']:
             return result["data"]["result"]
         else:
-            self.log(result["message"])
+            print("验证码API操作失败，错误信息是: ",result["message"])
             return ""
 
     def checkin(self):
@@ -221,6 +221,7 @@ class Zlapp(Fudan):
             print(save_msg, '\n\n')
             time.sleep(0.1)
             if(json_loads(save.text)["e"] != 1):
+                # 此时已成功，结束循环
                 break
 
 
